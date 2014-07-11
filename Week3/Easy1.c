@@ -44,6 +44,7 @@ int main(int argc, char *argv[])
         error("ERROR connecting");
     printf("Please enter the message: ");
     bzero(buffer,256);
+    while (buffer != NULL){
     fgets(buffer,255,stdin);
     n = write(sockfd,buffer,strlen(buffer));
     if (n < 0) 
@@ -53,5 +54,6 @@ int main(int argc, char *argv[])
     if (n < 0) 
          error("ERROR reading from socket");
     printf("%s\n",buffer);
+    }
     return 0;
 }
